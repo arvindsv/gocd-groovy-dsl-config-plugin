@@ -29,6 +29,7 @@ import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -56,6 +57,14 @@ public class Pipeline extends HasEnvironmentVariables<Pipeline> {
     @JsonProperty("group")
     @NotEmpty
     private String group;
+
+    /**
+     * Use this integer to order the display of pipelines on the dashboard. If multiple pipelines have the same
+     * {@code displayOrder} value, their order relative to each other will be indeterminate.
+     */
+    @JsonProperty("display_order_weight")
+    @PositiveOrZero
+    private Integer displayOrder = -1;
 
     /**
      * Pipeline label templates provide a means to label a pipeline or artefacts using a counter, or material

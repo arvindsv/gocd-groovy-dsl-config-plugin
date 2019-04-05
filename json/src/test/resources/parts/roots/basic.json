@@ -1,5 +1,5 @@
 {
-  "target_version": 3,
+  "target_version": 4,
   "pipelines": [
     {
       "name": "pipe1",
